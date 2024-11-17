@@ -1,6 +1,8 @@
 export enum AppPagePaths {
     HOME = '/',
-    ETH_ETFS = '/eth',
+    GMX = '/gmx',
+    HYPERLIQUID = '/hyperliquid',
+    AAVE = '/aave',
     ABOUT = '/about',
 }
 

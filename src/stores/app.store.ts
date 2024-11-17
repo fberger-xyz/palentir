@@ -28,9 +28,27 @@ export const useAppStore = create<{
             sublinks: [],
         },
         {
+            name: 'GMX',
+            path: AppPagePaths.GMX,
+            enabled: true,
+            sublinks: [],
+        },
+        {
+            name: 'Hyperliquid',
+            path: AppPagePaths.HYPERLIQUID,
+            enabled: true,
+            sublinks: [],
+        },
+        {
+            name: 'Aave',
+            path: AppPagePaths.AAVE,
+            enabled: false,
+            sublinks: [],
+        },
+        {
             name: 'About',
             path: AppPagePaths.ABOUT,
-            enabled: true,
+            enabled: false,
             sublinks: [],
         },
     ],

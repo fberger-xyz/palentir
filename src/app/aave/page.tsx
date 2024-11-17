@@ -6,15 +6,9 @@ import { Metadata } from 'next'
 dayjs.extend(weekOfYear)
 
 export const metadata: Metadata = {
-    title: `home | ${APP_METADATA.SITE_NAME}`,
+    title: `Aave | ${APP_METADATA.SITE_NAME}`,
 }
 
 export default async function Page() {
-    return (
-        <PageWrapper className="gap-5">
-            <p>GMX: WIP</p>
-            <p>Hyperliquid: WIP</p>
-            <p>Aave: WIP</p>
-        </PageWrapper>
-    )
+    return <PageWrapper className="gap-5">WIP</PageWrapper>
 }

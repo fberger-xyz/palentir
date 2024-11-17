@@ -28,7 +28,7 @@ export default function PageWrapper({ children, className, ...props }: { childre
                     className, // gap-2 md:gap-6
                 )}
             >
-                {pathname !== AppPagePaths.HOME && pathname !== AppPagePaths.ETH_ETFS && <GoBack />}
+                {pathname !== AppPagePaths.HOME && <GoBack />}
                 {children}
             </div>
         </Suspense>

@@ -48,13 +48,16 @@ model Historic {
   xata_version    Int       @default(0)
   xata_createdat  DateTime  @default(now()) @db.Timestamptz(6)
   xata_updatedat  DateTime  @default(now()) @db.Timestamptz(6)
-  averageSize     Float?
-  averageLeverage Float?
-  wins            Int?
-  losses          Int?
-  winsLossesRatio Float?
+  averageSize     Float     @default(0)
+  averageLeverage Float     @default(0)
+  wins            Int       @default(0)
+  losses          Int       @default(0)
+  winsLossesRatio Float     @default(0)
   protocolId      String?
   walletId        String?
+  closedCount     Int       @default(0)
+  realizedPnl     Float     @default(0)
+  unrealizedPnl   Float     @default(0)
   protocol        Protocol? @relation(fields: [protocolId], references: [name], onUpdate: SetNull)
   wallet          Wallet?   @relation(fields: [walletId], references: [address], onUpdate: SetNull)
 }
