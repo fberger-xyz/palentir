@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html.light {
+    --color-primary: #f87171;
+    --color-secondary: #500724;
+    --color-default: #71717a;
+    --color-inactive: #9ca3af;
+    --color-background: #e4e4e7;
+    --color-light-hover: #d4d4d8;
+    --color-very-light-hover: #cbd5e1;
+    --color-light-border: #e5e7eb;
+
+    /* tickers */
+    --color-ticker-ibit: #616161;
+    --color-ticker-fbtc: #368727;
+    --color-ticker-bitb: #22c96a;
+    --color-ticker-arkb: #8264ff;
+    --color-ticker-btco: #000ad2;
+    --color-ticker-ezbc: #b3d4fc;
+    --color-ticker-brrr: #cfff24;
+    --color-ticker-hodl: #17468f;
+    --color-ticker-btcw: #05a9b1;
+    --color-ticker-gbtc: #c5bfe4;
+    --color-ticker-btc: #c5bfe4;
+}
+
+html.dark {
+    --color-primary: #34d399;
+    --color-secondary: #78716c;
+    --color-default: #8b9bb1;
+    --color-inactive: #4b5563;
+    --color-background: #000;
+    --color-light-hover: #1e293b;
+    --color-very-light-hover: #111827;
+    --color-light-border: #374151;
+
+    /* tickers */
+    --color-ibit: #616161;
+    --color-fbtc: #368727;
+    --color-bitb: #22c96a;
+    --color-arkb: #8264ff;
+    --color-btco: #000ad2;
+    --color-ezbc: #b3d4fc;
+    --color-brrr: #cfff24;
+    --color-hodl: #17468f;
+    --color-btcw: #05a9b1;
+    --color-gbtc: #c5bfe4;
+    --color-btc: #c5bfe4;
+}
