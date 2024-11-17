@@ -8,48 +8,64 @@ datasource db {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model Flows {
-  xata_updatedat          DateTime @default(now()) @db.Timestamptz(6)
-  xata_id                 String   @unique(map: "_pgroll_new_Flows_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
-  xata_version            Int      @default(0)
-  xata_createdat          DateTime @default(now()) @db.Timestamptz(6)
-  day                     String   @unique(map: "Flows__pgroll_new_day_key")
-  IBIT                    Float    @default(0)
-  FBTC                    Float    @default(0)
-  BITB                    Float    @default(0)
-  ARKB                    Float    @default(0)
-  BTCO                    Float    @default(0)
-  EZBC                    Float    @default(0)
-  BRRR                    Float    @default(0)
-  HODL                    Float    @default(0)
-  BTCW                    Float    @default(0)
-  GBTC                    Float    @default(0)
-  BTC                     Float    @default(0)
-  raw                     Json?    @db.Json
-  total                   Float    @default(0)
-  close_of_bussiness_hour DateTime @default(now()) @db.Timestamptz(6)
-  rank                    Int      @default(0)
+model Wallet {
+  xata_id        String     @unique(map: "_pgroll_new_wallets_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int        @default(0)
+  xata_createdat DateTime   @default(now()) @db.Timestamptz(6)
+  xata_updatedat DateTime   @default(now()) @db.Timestamptz(6)
+  address        String     @unique(map: "wallets__pgroll_new_address_key")
+  type           String     @default("eoa")
+  chains         String[]
+  historics      Historic[]
+  positions      Position[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model EthFlows {
-  xata_updatedat          DateTime @default(now()) @db.Timestamptz(6)
-  xata_id                 String   @unique(map: "_pgroll_new_EthFlows_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
-  xata_version            Int      @default(0)
-  xata_createdat          DateTime @default(now()) @db.Timestamptz(6)
-  day                     String   @unique(map: "EthFlows__pgroll_new_day_key")
-  ETHA                    Float    @default(0)
-  FETH                    Float    @default(0)
-  ETHW                    Float    @default(0)
-  CETH                    Float    @default(0)
-  ETHV                    Float    @default(0)
-  EZBC                    Float    @default(0)
-  QETH                    Float    @default(0)
-  EZET                    Float    @default(0)
-  ETHE                    Float    @default(0)
-  ETH                     Float    @default(0)
-  raw                     Json?    @db.Json
-  total                   Float    @default(0)
-  close_of_bussiness_hour DateTime @default(now()) @db.Timestamptz(6)
-  rank                    Int      @default(0)
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Position {
+  xata_id             String    @unique(map: "_pgroll_new_positions_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version        Int       @default(0)
+  xata_createdat      DateTime  @default(now()) @db.Timestamptz(6)
+  xata_updatedat      DateTime  @default(now()) @db.Timestamptz(6)
+  chain               Int
+  direction           String
+  assetSymbol         String?
+  sizeUsd             Float?
+  leverage            Float     @default(1)
+  collateralUsd       Float?
+  entryPriceUsd       Float?
+  liquidationPriceUsd Float?
+  protocolId          String?
+  walletId            String?
+  protocol            Protocol? @relation(fields: [protocolId], references: [name], onUpdate: SetNull)
+  wallet              Wallet?   @relation(fields: [walletId], references: [address], onUpdate: SetNull)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Historic {
+  xata_id         String    @unique(map: "_pgroll_new_gmx_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version    Int       @default(0)
+  xata_createdat  DateTime  @default(now()) @db.Timestamptz(6)
+  xata_updatedat  DateTime  @default(now()) @db.Timestamptz(6)
+  averageSize     Float?
+  averageLeverage Float?
+  wins            Int?
+  losses          Int?
+  winsLossesRatio Float?
+  protocolId      String?
+  walletId        String?
+  protocol        Protocol? @relation(fields: [protocolId], references: [name], onUpdate: SetNull)
+  wallet          Wallet?   @relation(fields: [walletId], references: [address], onUpdate: SetNull)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model Protocol {
+  xata_id        String     @unique(map: "_pgroll_new_protocols_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int        @default(0)
+  xata_createdat DateTime   @default(now()) @db.Timestamptz(6)
+  xata_updatedat DateTime   @default(now()) @db.Timestamptz(6)
+  name           String     @unique(map: "protocols__pgroll_new_name_key")
+  historics      Historic[]
+  positions      Position[]
 }

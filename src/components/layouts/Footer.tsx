@@ -25,7 +25,7 @@ export default function Footer(props: FooterProps) {
                 {[
                     { href: `https://${APP_METADATA.SITE_AUTHOR}.xyz/projects/etfs`, icon: IconIds.WEBSITE },
                     { href: `https://t.me/${APP_METADATA.SOCIALS.TELEGRAM}`, icon: IconIds.TELEGRAM },
-                    { href: `https://x.com/${APP_METADATA.SOCIALS.TWITTER}`, icon: IconIds.X },
+                    { href: `https://x.com/${APP_METADATA.SOCIALS.X}`, icon: IconIds.X },
                     { href: `https://www.linkedin.com/in/${APP_METADATA.SOCIALS.LINKEDIN}`, icon: IconIds.LINKEDIN },
                 ].map((link) => (
                     <LinkWrapper key={link.href} target="_blank" href={link.href} className="cursor-alias hover:text-primary">

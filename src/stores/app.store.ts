@@ -22,14 +22,8 @@ export const useAppStore = create<{
     initialized: false,
     links: [
         {
-            name: '₿',
+            name: 'Home',
             path: AppPagePaths.HOME,
-            enabled: true,
-            sublinks: [],
-        },
-        {
-            name: 'Ξ',
-            path: AppPagePaths.ETH_ETFS,
             enabled: true,
             sublinks: [],
         },

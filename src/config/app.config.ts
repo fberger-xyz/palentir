@@ -2,11 +2,11 @@ import { AppThemes, IconIds } from '@/enums'
 
 export const APP_METADATA = {
     SITE_AUTHOR: 'fberger',
-    SITE_NAME: 'ETFs | fberger',
-    SITE_DESCRIPTION: '₿ and Ξ ETFs flows',
-    SITE_URL: 'https://etfs.fberger.xyz',
+    SITE_NAME: 'palentir',
+    SITE_DESCRIPTION: 'Description to be added',
+    SITE_URL: 'https://palentir.fberger.xyz',
     SOCIALS: {
-        TWITTER: 'fberger_xyz',
+        X: 'fberger_xyz',
         TELEGRAM: 'fberger_xyz',
         LINKEDIN: 'francis-berger-a2404094',
     },
